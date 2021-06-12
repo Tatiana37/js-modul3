@@ -1124,5 +1124,214 @@
 
 //  34
 
+//  теория (методы объета)
+// ✅ Логиески и синтаксически сгруппированные сущности
+// const bookShelf = {
+//   books: ["Последнее королевство", "Страж снов"],
+//   // Это метод объекта
+//   getBooks() {
+//     console.log("Этот метод будет возвращать все книги - свойство books");
+//   },
+//   // Это метод объекта
+//   addBook(bookName) {
+//     console.log("Этот метод будет добавлять новую книгу в свойство books");
+//   },
+// };
+
+// // Вызовы методов
+// bookShelf.getBooks();
+// bookShelf.addBook("Новая книга");
+
+//  задача
+// const bookShelf = {
+//   // Change code below this line
+//   books: ['The last kingdom', 'The guardian of dreams'],
+//   getBooks() {
+//     return 'Returning all books';
+//   },
+//   addBook(bookName) {
+//     return `Adding book ${bookName}`;
+//   },
+//   removeBook(bookName){
+//     return `Deleting book ${bookName}`
+//   },
+//   updateBook(oldName, newName){
+//     return `Updating book ${oldName} to ${newName}`
+//   },
+//   // Change code above this line
+// };
+// console.log(bookShelf.getBooks());
+// console.log(bookShelf.addBook("Haze"));
+// console.log(bookShelf.removeBook("Red sunset"));
+// console.log(bookShelf.updateBook("Sands of dune", "Dune"));
 
 
+//  35
+
+//  Доступ к свойствам объекта в его методах
+// const bookShelf = {
+//   books: ["Последнее королевство"],
+//   getBooks() {
+//     return this.books;
+//   },
+//   addBook(bookName) {
+//     this.books.push(bookName);
+//   },
+//   removeBook(bookName) {
+//     const bookIndex = this.books.indexOf(bookName);
+//     this.books.splice(bookIndex, 1);
+//   },
+// };
+
+// console.log(bookShelf.getBooks()); // []
+// bookShelf.addBook("Мгла");
+// bookShelf.addBook("Страж снов");
+// console.log(bookShelf.getBooks()); // ["Последнее королевство", "Мгла", "Страж снов"]
+// bookShelf.removeBook("Мгла");
+// console.log(bookShelf.getBooks()); // ["Последнее королевство", "Страж снов"]
+
+//  задача
+// const bookShelf = {
+//   books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+//   updateBook(oldName, newName) {
+//     // Change code below this line
+// 	const bookIndex = this.books.indexOf(oldName);
+// 	this.books.splice(bookIndex, 1, newName);
+// 	return this.books;
+//     // Change code above this line
+//   },
+// };
+// console.log(bookShelf.updateBook("Haze", "Dungeon chronicles"));
+// console.log(bookShelf.updateBook("The last kingdom", "Dune"));
+
+
+//  36
+
+// const atTheOldToad = {
+//   // Change code below this line
+//   potions: [],
+//   // Change code above this line
+// };
+// console.log(atTheOldToad.potions);
+
+
+//  37
+
+// const atTheOldToad = {
+//   // Change code below this line
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+  
+//   getPotions(){
+//      return this.potions;
+//   }
+//   // Change code above this line
+// };
+// console.log(atTheOldToad.potions);
+
+
+//  38 (?)
+
+// const atTheOldToad = {
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+//   addPotion(potionName) {
+//     // Change code below this line
+//     this.potions.push(potionName);
+    
+//     return this.potions;
+//     // Change code above this line
+//   },
+// };
+// console.log(atTheOldToad.addPotion('Invisibility'));
+// console.log(atTheOldToad.addPotion('Power potion'));
+
+
+//  39
+
+// const atTheOldToad = {
+//   potions: ["Speed potion", "Dragon breath", "Stone skin"],
+//   removePotion(potionName) {
+//     // Change code below this line
+//         const potionIndex = this.potions.indexOf(potionName);
+
+//         this.potions.splice(potionIndex, 1);
+
+//       return this.potions;
+//     // Change code above this line
+//   },
+// };
+// console.log(atTheOldToad.removePotion("Dragon breath"));
+// console.log(atTheOldToad.removePotion("Speed potion"));
+
+
+//  40
+
+// const atTheOldToad = {
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+//   updatePotionName(oldName, newName) {
+//     // Change code below this line
+//     const potionIndex = this.potions.indexOf(oldName);
+    
+//     this.potions.splice(potionIndex, 1, newName);
+//     return this.potions;
+//     // Change code above this line
+//   },
+// };
+
+// console.log(atTheOldToad.updatePotionName("Dragon breath", "Polymorth"));
+// console.log(atTheOldToad.updatePotionName("Stone skin", "Invisibility"));
+
+// addPotion(newPotion) {
+//         for (const potion of this.potions){
+//         if (Object.values(potion).includes(newPotion.name) &&
+//             Object.values(potion).includes(newPotion.price)){
+//             return `Potion ${newPotion.name} is already equipped!`;
+//         }
+//     } 
+//         this.potions.push(newPotion);
+//     },  
+//  41
+
+// const atTheOldToad = {
+//     potions: [
+//         { name: 'Speed potion', price: 460 },
+//         { name: 'Dragon breath', price: 780 },
+//         { name: 'Stone skin', price: 520 },
+//     ],
+//     // Change code below this line
+//     getPotions() {
+//         return this.potions;
+//     },
+//     addPotion(potionName) {
+//         if (this.potions.includes(potionName)) {
+//             return `Potion ${potionName} is already equipped!`;
+//         }
+
+//         this.potions.push(potionName);
+//     },
+//     removePotion(potionName) {
+    
+//         for (let i = 0; i < this.potions.length; i += 1) {
+        
+//             if (this.potions[i].name === potionName) {
+                
+//                 this.potions.splice(i, 1);
+//             }  
+//         }
+//     },
+//     updatePotionName(oldName, newName) {
+//         for(let pot of this.potions) {
+//         if(pot.name === oldName) {
+//             pot.name = newName
+//             }
+            
+//         }
+        
+//     },
+//     // Change code above this line
+// }
+// console.log(atTheOldToad.getPotions());
+// console.log(atTheOldToad.addPotion({name: "Invisibility", price: 620 }));
+// console.log(atTheOldToad.addPotion({name: "Power potion", price: 270 }));
+// console.log(atTheOldToad.removePotion("Dragon breath"));
+// console.log(atTheOldToad.updatePotionName("Dragon breath", "Polymorth"));
+// console.log(atTheOldToad.updatePotionName("Stone skin", "Invulnerability potion"));
